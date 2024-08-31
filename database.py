@@ -26,7 +26,7 @@ def selectDB():
             cursor = connection.cursor()
 
             # Aqui se realiza la sentencia SQL para realizar la insercion de los datos a la tabla, con los datos proporcionados por el usuario.
-            query = "SELECT * FROM users"
+            query = "SELECT nomUser, pasUser, nombre, apellido FROM users"
 
             # Se ejecuta la sentencia de SQL para la insercion en la tabla de la base de datos.
             cursor.execute(query)

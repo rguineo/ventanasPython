@@ -69,34 +69,34 @@ btnReturn = Button(nuevo, text="<< Regresar Menu Principal", command=backToMenu)
 
 # Los Labels son textos que hacen referencia una Caja de Texto
 label1 = Label(nuevo, text="Nombre Usuario")
-label1.place(relx=0.01, rely=0.05) 
+label1.place(relx=0.01, rely=0.15) 
 
 # Place es la ubicacion en la ventana. relx, rely son posiciones relativas, es decir, posicion establecida a traves de un porcentaje.
 
 input1 = Entry(nuevo) #Entry es un cuadro de texto o caja de texto
-input1.place(relx=0.2, rely=0.05) 
+input1.place(relx=0.2, rely=0.15) 
 
 label2 = Label(nuevo, text="Password")
-label2.place(relx=0.01, rely=0.12)
+label2.place(relx=0.01, rely=0.22)
 
 input2 = Entry(nuevo)
-input2.place(relx=0.2, rely=0.12)
+input2.place(relx=0.2, rely=0.22)
 
 label3 = Label(nuevo, text="Nombre")
-label3.place(relx=0.01, rely=0.19)
+label3.place(relx=0.01, rely=0.29)
 
 input3 = Entry(nuevo)
-input3.place(relx=0.2, rely=0.19)
+input3.place(relx=0.2, rely=0.29)
 
 label4 = Label(nuevo, text="Apellido")
-label4.place(relx=0.01, rely=0.26)
+label4.place(relx=0.01, rely=0.36)
 
 input4 = Entry(nuevo)
-input4.place(relx=0.2, rely=0.26)
+input4.place(relx=0.2, rely=0.36)
 
 btn = Button(nuevo, text="Guardar", command=funcBtnInsert) #Button es un boton para realizar acciones, el command hace un llamado a una funcion
 
-btn.place(relx=0.55, rely=0.05, relwidth=0.15, relheight=0.12)
+btn.place(relx=0.55, rely=0.15, relwidth=0.15, relheight=0.12)
 
 nuevo.withdraw() # ocultar ventana
 
