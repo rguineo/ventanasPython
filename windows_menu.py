@@ -1,4 +1,9 @@
-from tkinter import *
+import tkinter as tk
+from tkinter import ttk, Tk, Label, Button, messagebox, Menu
+from database import selectDB
+
+# Variables
+rows = []
 
 # Funciones
 def funcMenu():
@@ -23,6 +28,19 @@ def backToMenu():
     
     principal.deiconify() #mostrar ventana principal
 
+def findUsers():
+    rows = selectDB()
+
+    # Limpiar la tabla antes de mostrar nuevos datos
+    for i in tree.get_children():
+        tree.delete(i)
+
+    print(rows)
+    # Insertar cada fila en la tabla de tkinter
+    for row in rows:
+        tree.insert("", tk.END, values=row)
+
+    
 ## Creacion de ventanas ##
 
 # Creacion de ventana principal
@@ -33,15 +51,28 @@ principal.geometry("600x400")
 # Creacion de ventana Nuevo documento
 nuevo = Tk()
 nuevo.title("Nuevo documento")
-nuevo.geometry("600x400")
+nuevo.geometry("00x400")
 btnReturn = Button(nuevo, text="<< Regresar Menu Principal", command=backToMenu).pack()
 nuevo.withdraw() # ocultar ventana
 
 # Creacion de ventana Guardar
 guardar = Tk()
 guardar.title("Guardar documento")
-guardar.geometry("600x400")
+guardar.geometry("800x400")
 btnReturn = Button(guardar, text="<< Regresar Menu Principal", command=backToMenu).pack()
+
+## Agregar una tabla para los datos
+tree = ttk.Treeview(guardar, columns=("Columna1", "Columna2", "Columna3", "Columna4"), show='headings')
+tree.heading("Columna1", text="UserName")
+tree.heading("Columna2", text="Password")
+tree.heading("Columna3", text="Nombre")
+tree.heading("Columna4", text="Apellido")
+
+# Empaquetar el Treeview en la ventana
+tree.pack(fill=tk.BOTH, expand=True)
+
+# Botón para realizar la consulta
+button = tk.Button(guardar, text="Consultar", command=findUsers).pack()
 guardar.withdraw() # ocultar ventana
 
 # Creacion de ventana Guardar como
